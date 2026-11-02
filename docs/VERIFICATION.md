@@ -13,3 +13,5 @@ Verified with isolated PostgreSQL seed database and HTTP endpoints, plus a JavaS
 The in-app browser connection failed, and Windows Computer Use stopped because it could not verify the browser URL. This revision's visual layout was not rechecked through a live browser. The earlier screenshots show the previous design.
 
 Photo/theme revision: actual browser View item opened product details; Sell opened creation form; image chooser successfully attached and previewed a demo PNG. Isolated API tests confirmed photo persistence/readback, unchanged photos preserved during edits, invalid formats rejected and approved-offer photo changes rejected. Pastel brown CSS applied. No test offer created in the live database for this revision.
+
+Frontend/backend restructure: npm ci and root npm test passed. Backend serves ../frontend through the updated static path. Live Home, JS, CSS, health and product endpoints returned HTTP 200. Database data was not migrated or reset by this restructure. backend/.env remains ignored.

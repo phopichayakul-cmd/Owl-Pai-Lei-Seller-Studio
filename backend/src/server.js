@@ -136,7 +136,7 @@ app.get('/api/health', async (req, res) => {
   res.json({status:'ok',database:'connected'});
 });
 
-app.use(express.static(fileURLToPath(new URL('../public',import.meta.url))));
+app.use(express.static(fileURLToPath(new URL('../../frontend',import.meta.url))));
 
 app.use((req,res)=>res.status(404).json({error:'Route not found'}));
 app.use((err,req,res,next)=>{

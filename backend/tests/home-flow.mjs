@@ -32,7 +32,7 @@ try{
  const doc={querySelector(selector){if(!elements.has(selector))elements.set(selector,make());return elements.get(selector);},querySelectorAll(){return [];},addEventListener(){}};
  const context=vm.createContext({document:doc,window:{scrollTo(){},toastTimer:null},fetch:(path,o)=>request(path,o),setTimeout,clearTimeout,console,FormData,URL});
  // Test guest home before login with the same script and actual catalog response.
- const savedCookie=cookie;cookie='';const js=await readFile(rootDir+'public/app.js','utf8');vm.runInContext(js.replace(/boot\(\);\s*$/,'') ,context);await vm.runInContext('boot()',context);
+ const savedCookie=cookie;cookie='';const js=await readFile(rootDir+'../frontend/app.js','utf8');vm.runInContext(js.replace(/boot\(\);\s*$/,'') ,context);await vm.runInContext('boot()',context);
  assert(elements.get('#page').innerHTML.includes('Explore the catalog'));assert(!elements.get('#login-dialog')?.open);
  vm.runInContext("state.search='Adidas';render()",context);assert(elements.get('#page').innerHTML.includes('Adidas Campus Demo'));assert(!elements.get('#page').innerHTML.includes('Nike Apparel Demo'));
  await vm.runInContext("openProduct('1')",context);assert(elements.get('#page').innerHTML.includes('Sell this item'));assert(elements.get('#page').innerHTML.includes('Buy item'));
