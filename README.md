@@ -96,3 +96,15 @@ Owl-Pai-Lei/
 From the project root run `npm ci` then `npm start`. The root commands forward to the backend workspace, which serves the frontend at the same http://127.0.0.1:3188 address. No second terminal or separate frontend server is required. Frontend changes belong in frontend/; API and database changes belong in backend/. Do not open index.html directly as a file, because its API calls require the running server.
 
 Configure backend/.env before starting. On a new computer use `Copy-Item backend/.env.example backend/.env` in PowerShell, then enter the PostgreSQL credentials for that computer. Run `npm run db:setup` only for a new empty database. Run `npm test` from the root to test both parts against an isolated database.
+
+## Download and reuse
+
+```sh
+git clone https://github.com/phopichayakul-cmd/Owl-Pai-Lei-Seller-Studio.git
+cd Owl-Pai-Lei-Seller-Studio
+npm ci
+```
+
+Configure backend/.env from backend/.env.example, create the PostgreSQL database, and run `npm run db:setup` once. Then run `npm start` and open http://127.0.0.1:3188. Database passwords are configured on each person's own computer; the local database does not travel with a Git clone.
+
+The project is available under the MIT License: others may use, modify and redistribute the code while retaining the copyright and license notice. See LICENSE. This is a classroom prototype; real payment services, production hosting and production security configuration are not included.
